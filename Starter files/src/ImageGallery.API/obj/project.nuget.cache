@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cW03roWDRAuJA2O4GOSuDLcDHnZJaKuHapahsWz7tRRv2F8KkxzlOkwuqzFGamK0Gi8nPxvBZSuCKv+XDMOL9g==",
+  "dgSpecHash": "ZYcFA/UmwV4DXMX5f+1YMROTN71O3JTxRkpUHsDJLWn5AO5aPYwXhGTtuuA7I8yBhV23KhXS5w3NfW9EEd1EIA==",
   "success": true,
   "projectFilePath": "C:\\code\\barry\\courses\\SecuringAspNetCore3WithOAuth2AndOIDC\\Starter files\\src\\ImageGallery.API\\ImageGallery.API.csproj",
   "expectedPackageFiles": [

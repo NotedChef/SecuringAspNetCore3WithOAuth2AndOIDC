@@ -1,0 +1,9 @@
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\bin\Debug\netstandard2.1\ImageGallery.Model.deps.json
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\bin\Debug\netstandard2.1\ImageGallery.Model.dll
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\bin\Debug\netstandard2.1\ImageGallery.Model.pdb
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\obj\Debug\netstandard2.1\ImageGallery.Model.csprojAssemblyReference.cache
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\obj\Debug\netstandard2.1\ImageGallery.Model.AssemblyInfoInputs.cache
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\obj\Debug\netstandard2.1\ImageGallery.Model.AssemblyInfo.cs
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\obj\Debug\netstandard2.1\ImageGallery.Model.csproj.CoreCompileInputs.cache
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\obj\Debug\netstandard2.1\ImageGallery.Model.dll
+C:\code\barry\courses\SecuringAspNetCore3WithOAuth2AndOIDC\Starter files\src\ImageGallery.Model\obj\Debug\netstandard2.1\ImageGallery.Model.pdb

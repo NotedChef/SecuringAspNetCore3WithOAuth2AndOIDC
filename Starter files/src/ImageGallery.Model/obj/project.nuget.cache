@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "OBEZ852AFGVpmsd6jvxJX7FkvmLo0UYhXb95Bf0tIbbPSal9c8hRHMJsEn4excZXATpklWrr/wDERjtYNSHl0A==",
+  "dgSpecHash": "Da+cvhC84Vbqr67U98D08/tW7cYrs6kS8heVMGMz0JZeI7JUoTmNBjKspk6dKlGrNuvg4nNd4Cx2avyqtuOT7g==",
   "success": true,
   "projectFilePath": "C:\\code\\barry\\courses\\SecuringAspNetCore3WithOAuth2AndOIDC\\Starter files\\src\\ImageGallery.Model\\ImageGallery.Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\barry\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\barry\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
-    "C:\\Users\\barry\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\barry\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\barry\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\barry\\.nuget\\packages\\system.componentmodel.annotations\\4.3.0\\system.componentmodel.annotations.4.3.0.nupkg.sha512",
