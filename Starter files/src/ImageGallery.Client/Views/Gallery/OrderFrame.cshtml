@@ -1,0 +1,11 @@
+﻿@model ImageGallery.Client.ViewModels.OrderFrameViewModel
+
+<div class="container">
+    <div class="h3 bottomMarginDefault">Order a framed version of your favourite picture</div>
+    <div class="text bottomMarginDefault">We've got this address on record for you:</div>
+    <div class="text text-info bottomMarginSmall">Street: @Model.Address.Street_Address</div>
+    <div class="text text-info bottomMarginSmall">City: @Model.Address.Locality</div>
+    <div class="text text-info bottomMarginSmall">Postal Code: @Model.Address.Postal_Code.ToString()</div>
+    <div class="text text-info bottomMarginSmall">Country: @Model.Address.Country</div>
+    <div class="text">If this isn't correct, please contact us.</div>
+</div>

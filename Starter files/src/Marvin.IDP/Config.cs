@@ -14,7 +14,9 @@ namespace Marvin.IDP
             new IdentityResource[]
             {
                 new IdentityResources.OpenId(),  // ensures that the subjectid can be requested by the relying application
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResources.Address(),
+                new IdentityResource("roles", "Your role(s)", new List<string>() { "role" })
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -46,6 +48,8 @@ namespace Marvin.IDP
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Address,
+                        "roles"
                     },
                     ClientSecrets = { new Secret("secret".Sha256()) }
                 }
