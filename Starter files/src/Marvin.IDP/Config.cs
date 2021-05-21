@@ -16,7 +16,9 @@ namespace Marvin.IDP
                 new IdentityResources.OpenId(),  // ensures that the subjectid can be requested by the relying application
                 new IdentityResources.Profile(),
                 new IdentityResources.Address(),
-                new IdentityResource("roles", "Your role(s)", new List<string>() { "role" })
+                new IdentityResource("roles", "Your role(s)", new List<string>() { "role" }),
+                new IdentityResource("country", "Country of residence", new List<string>() { "country" }),
+                new IdentityResource("subscriptionlevel", "Level of subcription", new List<string>() { "subscriptionlevel" })
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -67,7 +69,9 @@ namespace Marvin.IDP
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
                         "roles",
-                        "imagegalleryapi"
+                        "imagegalleryapi",
+                        "country",
+                        "subscriptionlevel"
                     },
                     ClientSecrets = { new Secret("secret".Sha256()) }
                 }

@@ -31,6 +31,19 @@ namespace ImageGallery.Client
             services.AddControllersWithViews()
                  .AddJsonOptions(opts => opts.JsonSerializerOptions.PropertyNamingPolicy = null);
 
+            // adding policies for Attribute (aka Policy based) Based Authorization
+            services.AddAuthorization(authorizationOptions =>
+            {
+                authorizationOptions.AddPolicy(
+                    "CanOrderFrame",
+                    policyBuilder =>
+                    {
+                        policyBuilder.RequireAuthenticatedUser();
+                        policyBuilder.RequireClaim("country", "be");
+                        policyBuilder.RequireClaim("subscriptionlevel", "PayingUser");
+                    });
+            });
+
             // add injection of httpcontextaccessor and the custom bearertokenhandler for constructor injection
             services.AddHttpContextAccessor();
             services.AddTransient<BearerTokenHandler>();
@@ -66,9 +79,12 @@ namespace ImageGallery.Client
                 options.ResponseType = "code";
 
                 // profile and openId scopes are included by default by the OpenIdConnectOptions class
+                // what is returned from the UserInfo endpoint
                 options.Scope.Add("address");
                 options.Scope.Add("roles");
                 options.Scope.Add("imagegalleryapi");
+                options.Scope.Add("country");
+                options.Scope.Add("subscriptionlevel");
 
                 // To add a claim that isn't included by default in the mapping, you have to use ".Remove" which is counter intuitive
                 // e.g.
@@ -80,7 +96,10 @@ namespace ImageGallery.Client
                 options.ClaimActions.DeleteClaim("s_hash");
                 options.ClaimActions.DeleteClaim("auth_time");
 
+                // mapping required to add to the Claims Identity
                 options.ClaimActions.MapUniqueJsonKey("role", "role");
+                options.ClaimActions.MapUniqueJsonKey("subscriptionlevel", "subscriptionlevel");
+                options.ClaimActions.MapUniqueJsonKey("country", "country");
 
                 options.SaveTokens = true;
                 options.ClientSecret = "secret";

@@ -41,8 +41,9 @@ namespace IdentityServerHost.Quickstart.UI
                             //new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                             //new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
                             new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json),
-                            new Claim(JwtClaimTypes.Role, "FreeUser")
-
+                            new Claim(JwtClaimTypes.Role, "FreeUser"),
+                            new Claim("country", "au"),
+                            new Claim("subscriptionlevel", "FreeUser")
                         }
                     },
                     new TestUser
@@ -59,7 +60,9 @@ namespace IdentityServerHost.Quickstart.UI
                             //new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
                             //new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
                             new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json),
-                            new Claim(JwtClaimTypes.Role, "PayingUser")
+                            new Claim(JwtClaimTypes.Role, "PayingUser"),
+                            new Claim("country", "be"),
+                            new Claim("subscriptionlevel", "PayingUser")
                         }
                     }
                 };
