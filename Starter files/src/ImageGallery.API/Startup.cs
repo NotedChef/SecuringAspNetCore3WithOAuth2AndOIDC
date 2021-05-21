@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ImageGallery.API.Entities;
 using ImageGallery.API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace ImageGallery.API
 {
@@ -20,8 +21,9 @@ namespace ImageGallery.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
         }
-        
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -36,6 +38,13 @@ namespace ImageGallery.API
                 options.UseSqlServer(
                     Configuration["ConnectionStrings:ImageGalleryDBConnectionString"]);
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.Audience = "imagegalleryapi";
+                    options.Authority = "https://localhost:44317/";
+                });
 
             // register the repository
             services.AddScoped<IGalleryRepository, GalleryRepository>();
@@ -63,7 +72,7 @@ namespace ImageGallery.API
                         await context.Response.WriteAsync("An unexpected fault happened. Try again later.");
                     });
                 });
-                // The default HSTS value is 30 days. You may want to change this for 
+                // The default HSTS value is 30 days. You may want to change this for
                 // production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -72,7 +81,10 @@ namespace ImageGallery.API
 
             app.UseStaticFiles();
 
-            app.UseRouting(); 
+            app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

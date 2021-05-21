@@ -20,19 +20,35 @@ namespace Marvin.IDP
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
-            new ApiScope[]
-            { new ApiScope("imagegalleryapi1", "Image Gallery API") };
+             new ApiScope[]
+             {
+                new ApiScope(
+                    "imagegalleryapi",
+                    "Image Gallery API scope")
+             };
+
+        public static IEnumerable<ApiResource> ApiResources =>
+            new ApiResource[] {
+                new ApiResource(
+                    "imagegalleryapi",
+                    "Image Gallery API",
+                    new[] { "role" })
+                    {
+                        Scopes = { "imagegalleryapi"},
+                        ApiSecrets = { new Secret("apisecret".Sha256())}
+                    }
+                };
 
         public static IEnumerable<Client> Clients =>
             new Client[]
             {
-                new Client
-                {
-                    ClientId = "imagegalleryapi",
-                    ClientSecrets = { new Secret("secret".Sha256())},
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = {"imagegalleryapi1"}
-                },
+                //new Client
+                //{
+                //    ClientId = "imagegalleryapi",
+                //    ClientSecrets = { new Secret("secret".Sha256())},
+                //    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                //    AllowedScopes = {"imagegalleryapi"}
+                //},
                 new Client
                 {
                     ClientName = "Image Gallery",
@@ -42,6 +58,7 @@ namespace Marvin.IDP
                     {
                         "https://localhost:44389/signin-oidc"
                     },
+                    RequireConsent = true,
                     RequirePkce = true,
                     PostLogoutRedirectUris = new List<string>() { "https://localhost:44389/signout-callback-oidc" },
                     AllowedScopes = new List<string>
@@ -49,7 +66,8 @@ namespace Marvin.IDP
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
-                        "roles"
+                        "roles",
+                        "imagegalleryapi"
                     },
                     ClientSecrets = { new Secret("secret".Sha256()) }
                 }

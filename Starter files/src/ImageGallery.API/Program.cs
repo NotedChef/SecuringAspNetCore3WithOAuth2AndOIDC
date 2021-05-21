@@ -19,7 +19,7 @@ namespace ImageGallery.API
             {
                 try
                 {
-                    var context = scope.ServiceProvider.GetService<GalleryContext>();                   
+                    var context = scope.ServiceProvider.GetService<GalleryContext>();
                     // migrate & seed
                     context.Database.Migrate();
                 }
